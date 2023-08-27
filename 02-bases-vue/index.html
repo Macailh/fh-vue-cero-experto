@@ -16,6 +16,10 @@
         <p>{{ message }}</p>
         <h2>{{ quote }}</h2>
         <blockquote>-{{ author }}</blockquote>
+
+        <button v-on:click="changeQuote">
+            Change quote
+        </button>
     </div>
 
     <script src="app.js"></script>
