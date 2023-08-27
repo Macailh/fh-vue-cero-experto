@@ -11,7 +11,13 @@ const app = Vue.createApp({
 
     // setup() {}
 
-    
+    data() {
+        return {
+            message: 'Hello world!!!',
+            quote: "I'm Batman",
+            author: 'Bruce Wayne'
+        }
+    }
 })
 
 app.mount('#myApp')
