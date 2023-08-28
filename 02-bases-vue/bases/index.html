@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue.js intro</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="myApp">
+        <h1>Hello world</h1>
+        <p>From app.js</p>
+        <p>{{ 1 + 1 }}</p>
+        <p>[1,2,3,4,5,6]</p>
+        <p>{{ true ? 'Active': 'Inactive'}}</p>
+        <p>{{ message }}</p>
+        <h2>{{ quote }}</h2>
+        <blockquote>-{{ author }}</blockquote>
+
+        <button v-on:click="changeQuote">
+            Change quote
+        </button>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

@@ -8,18 +8,20 @@
 </head>
 <body>
     <div id="myApp">
-        <h1>Hello world</h1>
-        <p>From app.js</p>
-        <p>{{ 1 + 1 }}</p>
-        <p>[1,2,3,4,5,6]</p>
-        <p>{{ true ? 'Active': 'Inactive'}}</p>
-        <p>{{ message }}</p>
-        <h2>{{ quote }}</h2>
-        <blockquote>-{{ author }}</blockquote>
+        <h1>Batman quotes</h1>
+        <ul>
+            <li v-for="{quote, author} in quotes">
+                <span>{{quote}}</span>
+                <blockquote>-{{author}}</blockquote>
+            </li>
+        </ul>
 
-        <button v-on:click="changeQuote">
-            Change quote
-        </button>
+        <ul>
+            <li v-for="({quote, author}, index) in quotes">
+                <span>{{index + 1}} {{quote}}</span>
+                <blockquote>-{{author}}</blockquote>
+            </li>
+        </ul>
     </div>
 
     <script src="app.js"></script>
