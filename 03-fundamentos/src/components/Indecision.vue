@@ -6,9 +6,9 @@
     <input type="text" placeholder="Hazme una pregunta" v-model="question">
     <p>Recuerda terminal con un signo de interrogación (?)</p>
 
-    <div>
+    <div v-if="isValidQuestion">
         <h2>{{question}}</h2>
-        <h1>{{answer}}</h1>
+        <h1>{{answer === 'yes' ? 'Si!!!' : 'No!!!'}}</h1>
     </div>
   </div>
 </template>
@@ -19,7 +19,8 @@ export default {
         return {
             question: null,
             answer: null,
-            img: null
+            img: null,
+            isValidQuestion: false
         }
     },
     methods: {
@@ -35,7 +36,9 @@ export default {
       question(value, oldValue) {
         // console.log({value, oldValue})
         // console.log(value.includes('?'))
+        this.isValidQuestion = false
         if(!value.includes('?')) return
+        this.isValidQuestion = true
         this.getAnwer()
       }
     }
