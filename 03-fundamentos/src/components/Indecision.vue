@@ -4,7 +4,7 @@
 
   <div class="indecision-container">
     <input type="text" placeholder="Hazme una pregunta" v-model="question">
-    <p>Recurda terminal con un signo de interrogación (?)</p>
+    <p>Recuerda terminar con un signo de interrogación (?)</p>
 
     <div>
         <h2>{{question}}</h2>
