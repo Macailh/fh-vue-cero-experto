@@ -4,13 +4,9 @@ describe('Example Component', () => {
     let value = 5;
 
     // Act
-    value += 10
+    value += 33
 
     //Assert
-    if(value > 10) {
-      //TODO all fine
-    } else {
-      throw `${value} is not greather than 10`
-    }
+    expect(value).toBeGreaterThan(10)
   })
 })
