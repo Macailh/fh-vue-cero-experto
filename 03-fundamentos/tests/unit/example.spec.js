@@ -1,12 +1,9 @@
-describe('Example Component', () => {
-  test('Must be greather than 10', () => {
-    // Arrange
-    let value = 5;
+import { shallowMount } from '@vue/test-utils'
+import Counter from '@/components/Counter'
 
-    // Act
-    value += 33
-
-    //Assert
-    expect(value).toBeGreaterThan(10)
+describe('Counter component', () => {
+  it('snapshot match', () => {
+    const wrapper = shallowMount(Counter)
+    expect(wrapper.html()).toMatchSnapshot
   })
 })
