@@ -18,4 +18,12 @@ describe('Counter component', () => {
     console.log(h2.text())
     expect(h2.text()).toBe('Counter')
   })
+
+  test('the value should be 1', () => {
+    const wrapper = shallowMount(Counter)
+    // const pTags = wrapper.findAll('p')
+    const value = wrapper.find('[data-test-id="counter"]').text()
+    
+    expect(value).toBe('1')
+  })
 })
