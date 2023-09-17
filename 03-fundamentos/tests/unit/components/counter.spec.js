@@ -20,10 +20,45 @@ describe('Counter component', () => {
   })
 
   test('the value should be 1', () => {
-    const wrapper = shallowMount(Counter)
+    const startValue = 1
+    const wrapper = shallowMount(Counter, {
+      props: {
+        start: startValue
+      }
+    })
     // const pTags = wrapper.findAll('p')
     const value = wrapper.find('[data-test-id="counter"]').text()
     
     expect(value).toBe('1')
+  })
+
+  test('should increment by 1 the counter', async() => {
+    const startValue = 1
+    const wrapper = shallowMount(Counter, {
+      props: {
+        start: startValue
+      }
+    })
+    const increaseBtn = wrapper.findAll('button')
+
+    await increaseBtn[1].trigger('click')
+    const value = wrapper.find('[data-test-id="counter"]').text()
+
+    expect(value).toBe('2')
+  })
+
+  test('should descrease by 1 the counter', async() => {
+    const startValue = 1
+    const wrapper = shallowMount(Counter, {
+      props: {
+        start: startValue
+      }
+    })
+    const decreaseBtn = wrapper.find('button')
+
+    await decreaseBtn.trigger('click')
+    const value = wrapper.find('[data-test-id="counter"]').text()
+
+    expect(value).toBe('0')
   })
 })
