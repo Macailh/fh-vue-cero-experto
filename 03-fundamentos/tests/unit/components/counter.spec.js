@@ -14,7 +14,7 @@ describe('Counter component', () => {
   })
   // it('snapshot match', () => {
   //   const wrapper = shallowMount(Counter)
-  //   expect(wrapper.html()).toMatchSnapshot
+  //   expect(wrapper.html()).toMatchSnapshot()
   // })
 
   test('h2 should have the default value "Counter"', () => {
@@ -41,10 +41,22 @@ describe('Counter component', () => {
     expect(value).toBe('1')
   })
 
-  test('props', () => {
+  test('should set the initial value', () => {
     const {start} = wrapper.props()
     const value = wrapper.find('[data-test-id="counter"]').text()
 
     expect(Number(value)).toBe(start)
+  })
+
+  test('should show the title prop', () => {
+    const title = 'Test title'
+    const wrapper = shallowMount(Counter, {
+      props: {
+        title,
+        start: 4
+      }
+    })
+
+    expect(wrapper.find('h2').text()).toBe(title)
   })
 })
