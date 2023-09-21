@@ -40,4 +40,11 @@ describe('Counter component', () => {
 
     expect(value).toBe('1')
   })
+
+  test('props', () => {
+    const {start} = wrapper.props()
+    const value = wrapper.find('[data-test-id="counter"]').text()
+
+    expect(Number(value)).toBe(start)
+  })
 })
