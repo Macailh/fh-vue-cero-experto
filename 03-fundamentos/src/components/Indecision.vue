@@ -24,7 +24,7 @@ export default {
         }
     },
     methods: {
-      async getAnwer() {
+      async getAnswer() {
         this.answer = 'Pensando...'
 
         const {answer, image} = await fetch('https://yesno.wtf/api').then(r => r.json())
@@ -37,9 +37,10 @@ export default {
         // console.log({value, oldValue})
         // console.log(value.includes('?'))
         this.isValidQuestion = false
+        console.log({value})
         if(!value.includes('?')) return
         this.isValidQuestion = true
-        this.getAnwer()
+        this.getAnswer()
       }
     }
 
