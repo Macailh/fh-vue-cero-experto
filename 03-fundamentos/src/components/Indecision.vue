@@ -25,11 +25,17 @@ export default {
     },
     methods: {
       async getAnswer() {
-        this.answer = 'Pensando...'
+        try {
+          this.answer = 'Pensando...'
 
-        const {answer, image} = await fetch('https://yesno.wtf/api').then(r => r.json())
-        this.answer = answer
-        this.img = image
+          const {answer, image} = await fetch('https://yesno.wtf/api').then(r => r.json())
+          this.answer = answer
+          this.img = image
+        } catch (error) {
+          console.log('Indecision component', error)
+          this.answer = 'Cant load the API'
+          this.img = null
+        }
       }
     },
     watch: {
