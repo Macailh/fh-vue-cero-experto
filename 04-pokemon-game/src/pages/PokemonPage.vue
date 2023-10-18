@@ -1,8 +1,6 @@
 <template>
     <h1>¿Quién es este pokémon?</h1>
-    <!-- TODO img -->
-    <PokemonPicture />
-    <!-- TODO Opciones -->
+    <PokemonPicture :pokemonId="639" :showPokemon="false" />
     <PokemonOptions />
 </template>
 
